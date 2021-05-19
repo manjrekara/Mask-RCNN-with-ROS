@@ -1,7 +1,5 @@
 function [bboxes, scores, labels, finalMasks] = detectMaskRCNN(dlnet, maskSubnet, image, params, executionEnvironment)
 
-% Copyright 2020 The MathWorks, Inc.
-
 % Prepare input image for prediction
 %if(executionEnvironment == "gpu")
  %   image = gpuArray(image);
@@ -123,4 +121,5 @@ end
 end
 
 
+% Copyright 2020 The MathWorks, Inc.
 
