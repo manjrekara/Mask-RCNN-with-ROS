@@ -1,25 +1,6 @@
 function [bboxes, scores, labels, finalMasks] = detectMaskRCNN(dlnet, maskSubnet, image, params, executionEnvironment)
 
-% detectMaskRCNN runs prediction on a trained maskrcnn network
-%
-% Inputs:
-% dlnet      - Pretrained MaskRCNN dlnetwork
-% maskSubnet - Pretrained mask branch of maskRCNN dlnetwork
-% image      - RGB image to run prediction on. (H x W x 3)
-% params     - MaskRCNN network configuration object Created using
-%               helper.createNetworkConfiguration
-%
-% Outputs:
-% bboxes     - Final bounding box detections ([x y w h]) formatted as
-%              NumDetections x 4.
-% scores     - NumDetections x 1 classification scores.
-% labels     - NumDetections x 1 categorical class labels.
-% finalMasks - Binary object Masks detections formatted as 
-%              H x W x NumDetections
-
 % Copyright 2020 The MathWorks, Inc.
-
-
 
 % Prepare input image for prediction
 %if(executionEnvironment == "gpu")
@@ -28,7 +9,6 @@ function [bboxes, scores, labels, finalMasks] = detectMaskRCNN(dlnet, maskSubnet
 % Cast the image to a dlarray
 X = dlarray(single(image),'SSCB');
 imageSize = size(image);
-
 
 %%% Detector prediction
 
@@ -39,7 +19,7 @@ outputNodes = [outputNodes featureMapNode];
 
 % Run prediction on the inputs
 [bboxes, YRCNNClass, YRCNNReg, featureMap] = predict(...
-                                        dlnet, X, 'Outputs', outputNodes);
+                                       dlnet, X, 'Outputs', outputNodes);
                                     
 % Extract data from the output dlarrays
 bboxes = extractdata(bboxes)';
