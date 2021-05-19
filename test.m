@@ -22,8 +22,10 @@ numClasses = 2;
 
 params = createMaskRCNNConfig(trainImgSize, numClasses, classNames);
 
+% Select execution environment. Can be changed to gpu if the system has a gpu installed.
 executionEnvironment = "cpu";
 
+% Downloads the pretrained network
 datadir = tempdir;
 url = 'https://www.mathworks.com/supportfiles/vision/data/maskrcnn_pretrained_person_car.mat';
 
