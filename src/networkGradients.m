@@ -1,9 +1,6 @@
 function [gradients, totalLoss, state] = networkGradients(X, gTruthBoxes, gTruthLabels, gTruthMasks, dlnet, params)
 % networkGradients - Gradient function to train MaskRCNN using a custom
 % training loop.
- 
-% Copyright 2020 The MathWorks, Inc.
-
 
 RPNRegDeltas = {'rpnConv1x1BoxDeltas'};regionProposal = {'rpl'};
  
