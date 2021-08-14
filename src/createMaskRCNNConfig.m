@@ -2,8 +2,6 @@ function params = createMaskRCNNConfig(imageSize, numClasses, classNames)
 % createNetworkConfiguration creates the maskRCNN training and detection
 % configuration parameters
 
-% Copyright 2020 The MathWorks, Inc.
-
 
     % Network parameters
     params.ImageSize = imageSize;
